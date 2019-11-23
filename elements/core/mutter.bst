@@ -18,7 +18,6 @@ runtime-depends:
 - core/gnome-control-center.bst
 
 depends:
-- core-deps/startup-notification.bst
 - core-deps/libinput.bst
 - core-deps/upower.bst
 - core-deps/zenity.bst
@@ -46,3 +45,4 @@ variables:
     -Dxwayland_initfd=enabled
     -Dprofiler=true
     -Dtests=false
+    -Dstartup_notification=false
