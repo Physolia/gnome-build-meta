@@ -69,7 +69,7 @@ trap on_exit EXIT
 updated_refs=""
 
 for element in ${REPO_ELEMENTS}; do
-    ${BST} checkout --hardlinks $element "$checkout/$element"
+    ${BST} artifact checkout --hardlinks $element "$checkout/$element"
     ref=$(ostree refs --repo $checkout/$element)
     prev_commit=$(ostree rev-parse --repo ostree-repo ${ref} 2>/dev/null || true)
     test -n "${prev_commit}" && updated_refs="${updated_refs} ${ref}"
