@@ -16,3 +16,6 @@ depends:
 - sdk/webkit2gtk-4.0.bst
 - freedesktop-sdk.bst:components/gstreamer.bst
 - freedesktop-sdk.bst:bootstrap-import.bst
+variables:
+  meson-local: >-
+    -DX11=disabled
