@@ -3,10 +3,6 @@ kind: cmake
 sources:
 - kind: tar
   url: webkitgtk_org:webkitgtk-2.30.3.tar.xz
-- kind: local
-  path: files/webkitgtk/toolchain.i686
-- kind: local
-  path: files/webkitgtk/toolchain.arm
 
 build-depends:
 - sdk-deps/bubblewrap.bst
@@ -49,15 +45,14 @@ depends:
 
 variables:
   optimize-debug: 'false'
-  webkitgtk_toolchain: ''
   webkitgtk_arch_options: ''
   (?):
   - arch == "i686" or arch == "arm":
-      webkitgtk_toolchain: -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=toolchain.%{arch}
+      webkitgtk_arch_options: -DCMAKE_BUILD_TYPE=Release
   cmake-local: >-
     -DPORT=GTK
-    %{webkitgtk_toolchain}
     %{webkitgtk_arch_options}
+
 (?):
 - arch == "i686":
     environment:
@@ -67,6 +62,7 @@ variables:
     environment:
       CFLAGS: '%{flags_arm} -g1'
       CXXFLAGS: '%{flags_arm} -g1'
+
 public:
   bst:
     split-rules:
