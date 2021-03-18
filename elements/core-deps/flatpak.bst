@@ -37,3 +37,4 @@ variables:
   conf-local: >-
     --with-system-bubblewrap
     --with-system-dbus-proxy
+    --disable-xauth
