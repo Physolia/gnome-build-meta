@@ -40,6 +40,7 @@ variables:
     -Dprint-cloudprint=disabled
     -Dvulkan=disabled
     -Dprofiler=true
+    -Dx11-backend=false
 
 public:
   bst:
