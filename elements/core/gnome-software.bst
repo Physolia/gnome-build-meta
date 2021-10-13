@@ -1,16 +1,9 @@
-kind: meson
-
-sources:
-- kind: git_tag
-  url: gnome:gnome-software.git
-  track: main
+kind: filter
 
 build-depends:
-- sdk/gtk-doc.bst
-- sdk/sysprof-minimal.bst
-- freedesktop-sdk.bst:public-stacks/buildsystem-meson.bst
+- core/gnome-software-all.bst
 
-depends:
+runtime-depends:
 - core-deps/appstream.bst
 - core-deps/eos-updater.bst
 - core-deps/flatpak.bst
@@ -32,19 +25,6 @@ depends:
 - freedesktop-sdk.bst:components/polkit.bst
 - freedesktop-sdk.bst:bootstrap-import.bst
 
-variables:
-  meson-local: >-
-    -Dfwupd=true
-    -Dvalgrind=false
-    -Dpolkit=true
-    -Dflatpak=true
-    -Deos_updater=true
-    -Dpackagekit=false
-    -Dsoup2=true
-
 config:
-  configure-commands:
-    (<):
-    #FIXME: fix eos-updater and gnome-software upstream to use the "osname"
-    - |
-      sed -i 's/Endless OS/GNOME OS/' plugins/eos-updater/gs-plugin-eos-updater.c po/*.po
+  exclude:
+  - snap-plugin

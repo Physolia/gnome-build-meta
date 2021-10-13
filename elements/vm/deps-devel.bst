@@ -2,6 +2,7 @@ kind: stack
 
 depends:
 - sdk.bst
+- core/gnome-software-snap.bst
 - core/meta-gnome-core-developer-tools.bst
 - vm/buildstream/bst-external.bst
 - vm/buildstream/buildstream.bst
