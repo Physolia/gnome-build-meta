@@ -49,6 +49,9 @@ default:
       x86_64)
          TARGETS+=(vm/repo.bst vm/repo-devel.bst)
          ;;
+      i686)
+         TARGETS=(flatpak-runtimes.bst flatpak-platform-extensions.bst flatpak/platform-manifest.bst flatpak/sdk-manifest.bst)
+         ;;
     esac
 
   - ${BST} --max-jobs $(( $(nproc) / 4 )) -o arch "${ARCH}" build "${TARGETS[@]}"
