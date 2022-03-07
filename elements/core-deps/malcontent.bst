@@ -3,6 +3,8 @@ kind: meson
 sources:
 - kind: tar
   url: tecnocode:malcontent-0.10.1.tar.xz
+- kind: patch
+  path: files/malcontent/Remove-superfluous-arguments-to-i18n.merge_file.patch
 
 build-depends:
 - core-deps/glib-testing.bst
