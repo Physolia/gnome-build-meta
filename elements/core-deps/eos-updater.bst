@@ -3,6 +3,8 @@ kind: meson
 sources:
 - kind: tar
   url: github_files:endlessm/eos-updater/archive/Release_4.0.2.tar.gz
+- kind: patch
+  path: files/eos-updater/remove-static-library-version.patch
 
 depends:
 - core-deps/NetworkManager.bst
