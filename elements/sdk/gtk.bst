@@ -33,6 +33,9 @@ depends:
 - freedesktop-sdk.bst:components/wayland.bst
 - freedesktop-sdk.bst:bootstrap-import.bst
 
+environment:
+  CFLAGS: '-DG_ENABLE_DEBUG'
+
 variables:
   meson-local: >-
     -Dbroadway-backend=true
